@@ -276,7 +276,7 @@ class Input extends React.Component<InputProps, any> {
   }
 
   renderInput(prefixCls: string) {
-    const { className, addonBefore, addonAfter } = this.props;
+    const { className, addonBefore, addonAfter, onKeyUp } = this.props;
     const { value } = this.state;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
@@ -303,6 +303,7 @@ class Input extends React.Component<InputProps, any> {
           [className!]: className && !addonBefore && !addonAfter,
         })}
         onKeyDown={this.handleKeyDown}
+        onKeyUp={onKeyUp}
         ref={this.saveInput}
       />,
     );
